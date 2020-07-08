@@ -20,8 +20,8 @@ public class EbsBlockDevice {
 	@JsonProperty("iops") private Integer iops;
 
 	// Amazon Resource Name (ARN) of KMS Key, if EBS volume is encrypted.
-	@JsonProperty("kms_key_arn") private String kmsKeyArn; // TODO in Ami is kms_key_id
-
+	@JsonProperty("kms_key_arn") private String kmsKeyArn; // AwsInstance is kms_key_arn
+	@JsonProperty("kms_key_id") private String kmsKeyId; // AwsAmi is kms_key_id
 
 	//  The size of the volume, in GiB.
 	@JsonProperty("volume_size") private Double volumeSize;
