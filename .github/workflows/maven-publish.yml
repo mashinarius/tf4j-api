@@ -27,4 +27,4 @@ jobs:
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
-        GITHUB_TOKEN: ${{ TF4J_PUBLISH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TF4J_PUBLISH_TOKEN }}
