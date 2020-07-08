@@ -38,6 +38,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <jackson.version>2.10.4</jackson.version>
+        <lombok.version>1.18.12</lombok.version>
+        <jupiter.version>5.6.2</jupiter.version>
+
     </properties>
 
     <scm>
@@ -86,7 +89,7 @@
                 </executions>
             </plugin>
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
@@ -95,7 +98,7 @@
                         <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
         </plugins>
     </build>
@@ -107,33 +110,23 @@
             <version>${jackson.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
+            <version>${jupiter.version}</version>
             <scope>compile</scope>
         </dependency>
-
-        <!--        <dependency>
-                    <groupId>com.fasterxml.jackson</groupId>
-                    <artifactId>jackson-base</artifactId>
-                    <version>${jackson.version}</version>
-                </dependency>-->
-
-
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
         </dependencies>
     </dependencyManagement>
-
-
 </project>
