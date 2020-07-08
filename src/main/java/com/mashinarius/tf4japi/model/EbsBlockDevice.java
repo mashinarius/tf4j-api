@@ -1,11 +1,13 @@
-package com.mashinarius.tf4j.to;
+package com.mashinarius.tf4japi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
  * The EBS block device mappings of the Instance
  *  https://www.terraform.io/docs/providers/aws/d/instance.html#ebs_block_device
  */
+@Data
 public class EbsBlockDevice {
 
 	// If the EBS volume will be deleted on termination.

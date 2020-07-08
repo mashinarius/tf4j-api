@@ -1,13 +1,13 @@
-package com.mashinarius.tf4j.to;
+package com.mashinarius.tf4japi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
+import lombok.Data;
 
 /**
  * The metadata options of the Instance
  * https://www.terraform.io/docs/providers/aws/d/instance.html#metadata_options
  */
+@Data
 public class MetadataOption {
 
 	// The state of the metadata service: enabled, disabled.

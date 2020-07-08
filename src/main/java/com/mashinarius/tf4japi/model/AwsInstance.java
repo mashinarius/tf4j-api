@@ -1,15 +1,16 @@
-package com.mashinarius.tf4j.to;
+package com.mashinarius.tf4japi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- *
  * https://www.terraform.io/docs/providers/aws/d/instance.html
  */
-public class AwsInstance {
+@Data
+public class AwsInstance extends AbstractTerraformDataSource {
 
 	// id is set to the ID of the found Instance.
 	@JsonProperty("id") private String id;
@@ -42,10 +43,12 @@ public class AwsInstance {
 	// NOTE: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
 	@JsonProperty("ipv6_addresses") private List<String> ipv6Addresses;
 
-	// The state of the instance. One of: pending, running, shutting-down, terminated, stopping, stopped. See
-	// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
-	// Instance Lifecycle for more information.
-	@JsonProperty("instance_state") private String instanceState;
+	/**
+	 * The state of the instance. One of: pending, running, shutting-down, terminated, stopping, stopped. See
+	 * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
+	 * Instance Lifecycle for more information.
+	 */
+	@JsonProperty("instance_state") private InstantState instanceState;
 
 	// The type of the Instance.
 	@JsonProperty("instance_type") private String instanceType;
@@ -59,12 +62,14 @@ public class AwsInstance {
 	//  The ID of the network interface that was created with the Instance.
 	@JsonProperty("network_interface_id") private String networkInterfaceId;
 
-	// Base-64 encoded encrypted password data for the instance.
-	// Useful for getting the administrator password for instances running Microsoft Windows.
-	// This attribute is only exported if get_password_data is true.
-	// See
-	// https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html
-	// GetPasswordData for more information.
+	/**
+	 * Base-64 encoded encrypted password data for the instance.
+	 * Useful for getting the administrator password for instances running Microsoft Windows.
+	 * This attribute is only exported if get_password_data is true.
+	 * See
+	 * https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html
+	 * GetPasswordData for more information.
+	 */
 	@JsonProperty("password_data") private String passwordData;
 
 	// The placement group of the Instance.
@@ -124,6 +129,6 @@ public class AwsInstance {
 	@JsonProperty("credit_specification") private String creditSpecification;
 
 	// The metadata options of the Instance.
-	@JsonProperty("metadata_options") private MetadataOption metadataOptions;
+	@JsonProperty("metadata_options") private List<MetadataOption> metadataOptions;
 
 }
