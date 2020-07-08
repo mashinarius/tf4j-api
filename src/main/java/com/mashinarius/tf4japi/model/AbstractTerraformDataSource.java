@@ -7,6 +7,17 @@ import java.util.Map;
 
 public class AbstractTerraformDataSource {
 
+	//@Transient
+	private String terraformResourceName;
+
+	public String getTerraformResourceName() {
+		return terraformResourceName;
+	}
+
+	public void setTerraformResourceName(String terraformResourceName) {
+		this.terraformResourceName = terraformResourceName;
+	}
+
 	public String toJson() throws JsonProcessingException {
 		return new ObjectMapper().writeValueAsString(this);
 	}
